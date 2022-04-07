@@ -43,7 +43,7 @@
                let responseStr = responseDetails.responseText;
 
                let temp = document.createElement("temp");
-               temp.innerHTML = responseStr/*.split(/<body>|<\/body>/)[1]*/.trim();
+               temp.innerHTML = responseStr.trim();
 
                let targetEl = temp.querySelector("div.Comment");
                let targetImg = targetEl.querySelector(`img[title="${title}"]`);
