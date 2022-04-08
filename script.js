@@ -13,9 +13,7 @@
 (function() {
     'use strict';
 
-    let regExp = new RegExp(/:\d{4}:/);
-    let body = document.querySelector("body");
-
+    let regExp = new RegExp(/:\d{4}:/);    
 
     function fetchImageThenAppend(arr, index=0){
        if(!arr[index]) {
@@ -48,20 +46,29 @@
                let targetEl = temp.querySelector("div.Comment");
                let targetImg = targetEl.querySelector(`img[title="${title}"]`);
 
-               el.innerHTML = el.innerHTML.replace(/:\d{4}:/, `<img src=${targetImg.src} style="height:1em" />`);
-
-               temp.innerHTML = "";
-
-               fetchImageThenAppend(arr, index);
+               if(targetImg){
+                   el.innerHTML = el.innerHTML.replace(/:\d{4}:/, `<img src=${targetImg.src} style="height: 1em"/>`);
+                   temp.innerHTML = "";
+                   fetchImageThenAppend(arr, index);
+               } else {
+                   temp.innerHTML = "";
+                   fetchImageThenAppend(arr, ++index);
+               }
            }
        } );
     }
-    
 
-    if(regExp.test(body.innerHTML)) {
-       let divStore = Array.from(document.querySelectorAll("div.entry"));
 
-       fetchImageThenAppend(divStore);
+    function scanPage(){
+       let body = document.querySelector("body");
+       if(regExp.test(body.innerHTML)) {
+           let divStore = Array.from(document.querySelectorAll("div.entry"));
+
+           fetchImageThenAppend(divStore);
+       }
     }
 
+    scanPage();
+
+    document.addEventListener("scroll", scanPage);
 })();
