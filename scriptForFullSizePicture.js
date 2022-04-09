@@ -47,7 +47,7 @@
                let targetImg = targetEl.querySelector(`img[title="${title}"]`);
 
                if(targetImg){
-                   el.innerHTML = el.innerHTML.replace(/:\d{4}:/, `<img src=${targetImg.src} style="height: 1em"/>`);
+                   el.innerHTML = el.innerHTML.replace(/:\d{4}:/, `<img src=${targetImg.src} />`);
                    temp.innerHTML = "";
                    fetchImageThenAppend(arr, index);
                } else {
