@@ -13,7 +13,7 @@
 (function() {
     'use strict';
 
-    let regExp = new RegExp(/:\d{4}:/);    
+    let regExp = new RegExp(/:\d{4,}:/);    
 
     function fetchImageThenAppend(arr, index=0){
        if(!arr[index]) {
@@ -27,7 +27,7 @@
           return;
        }
 
-       let title = el.innerHTML.match(/:\d{4}:/)[0];
+       let title = el.innerHTML.match(regExp)[0];
        let link = el.querySelector("a.bylink");
        let newLink = link.href.replace("//old", "//new");
 
@@ -47,7 +47,7 @@
                let targetImg = targetEl.querySelector(`img[title="${title}"]`);
 
                if(targetImg){
-                   el.innerHTML = el.innerHTML.replace(/:\d{4}:/, `<img src=${targetImg.src} style="height: 1em"/>`);
+                   el.innerHTML = el.innerHTML.replace(regExp, `<img src=${targetImg.src} style="height: 1em"/>`);
                    temp.innerHTML = "";
                    fetchImageThenAppend(arr, index);
                } else {
