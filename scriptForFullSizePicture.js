@@ -48,10 +48,10 @@
                temp.innerHTML = responseStr.trim();
 
                let targetEl = temp.querySelector("div.Comment");
-               let targetImg = targetEl.querySelector(`img[title="${title}"]`); //get image from new.reddit by sticker number.
+               let targetImg = targetEl.querySelector(`img[title="${title}"]`); // Get image from new.reddit by sticker number.
 
                if(targetImg){
-                   el.innerHTML = el.innerHTML.replace(regExp, `<img src=${targetImg.src} />`);
+                   el.innerHTML = el.innerHTML.replace(regExp, `<img src=${targetImg.src} />`); // Replace sticker number with corresponding sticker.
                    temp.innerHTML = "";
                    // Not increasing index number to check if this comment has more sticker numbers.
                    fetchImageThenAppend(arr, index);
