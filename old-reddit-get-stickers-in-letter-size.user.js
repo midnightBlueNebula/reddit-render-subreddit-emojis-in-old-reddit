@@ -60,6 +60,7 @@
 
                if(targetImg){
                    el.innerHTML = el.innerHTML.replace(title, `<img src=${targetImg.src} style="height: 1em"/>`); // Replace sticker number with corresponding sticker.
+                   memorizeStickerLinks[title] = targetImg.src; // memorize link for this title.
                    temp.innerHTML = "";
                    // Not increasing index number to check if this comment has more sticker numbers.
                    fetchImageThenAppend(arr, index);
