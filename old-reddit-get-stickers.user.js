@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         Get stickers for old reddit
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  Replaces numbers between colons with their corresponding stickers in old.reddit.
+// @author       midnightBlueNebula
 // @match        https://old.reddit.com/*
 // @connect      new.reddit.com
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @icon         https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
